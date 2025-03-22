@@ -10,38 +10,12 @@ A Raspberry Pi-based system that detects AprilTags using the PiCamera and provid
 - **Simplified Detection**: Focuses on the most common AprilTag family (tag36h11) for reliability
 - **Modular Design**: Easily extensible with additional features
 
-## Project Structure
-
-```
-apriltag-detection/
-├── app.py                      # Main application entry point
-├── requirements.txt            # Python dependencies
-├── backend/                    # Backend components
-│   ├── __init__.py            
-│   ├── camera_manager.py       # Camera handling
-│   ├── apriltag_detector.py    # AprilTag detection
-│   └── frame_processor.py      # Frame processing and streaming
-└── frontend/                   # Frontend components
-    ├── templates/              # HTML templates
-    │   └── index.html          # Main page template
-    └── static/                 # Static assets
-        ├── style.css           # Stylesheet
-        └── app.js              # Frontend JavaScript
-```
-
-## Requirements
-
-- Raspberry Pi 4 (recommended) or Raspberry Pi 3
-- Raspberry Pi Camera Module
-- Python 3.7+
-- Required Python packages (see requirements.txt)
-
 ## Installation
 
 1. Clone this repository:
    ```bash
-   git clone https://github.com/yourusername/apriltag-detection.git
-   cd apriltag-detection
+   git clone https://github.com/ZachariahJ/AprilTag_Position_System
+   cd AprilTag_Position_System
    ```
 
 2. Install required dependencies:
