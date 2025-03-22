@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AprilTag Detection System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>AprilTag Detection System</h1>
+            <p>Detecting tag36h11 family markers</p>
+        </header>
+        
+        <main>
+            <div class="video-container">
+                <img src="{{ url_for('video_feed') }}" alt="Live video feed" id="video-feed">
+            </div>
+            
+            <div class="stats-container">
+                <h2>Detection Statistics</h2>
+                <div class="stats">
+                    <div class="stat-item">
+                        <span class="stat-label">Tags Detected:</span>
+                        <span class="stat-value" id="tags-count">0</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Processing FPS:</span>
+                        <span class="stat-value" id="processing-fps">0</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Last Detection:</span>
+                        <span class="stat-value" id="last-detection">Never</span>
+                    </div>
+                </div>
+            </div>
+        </main>
+        
+        <footer>
+            <p>AprilTag Detection System © 2025</p>
+        </footer>
+    </div>
+    
+    <script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>
