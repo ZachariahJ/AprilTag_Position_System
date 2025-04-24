@@ -1,4 +1,4 @@
-/* Main Styles for AprilTag Detection System */
+/* Main Styles for AprilTag 6DOF Detection System */
 
 :root {
     --primary-color: #4a86e8;
@@ -7,6 +7,7 @@
     --text-color: #f5f5f5;
     --card-background: #2a2a2a;
     --border-color: #444444;
+    --tag-highlight: #ff6b6b;
 }
 
 * {
@@ -50,7 +51,7 @@ main {
 
 @media (min-width: 768px) {
     main {
-        grid-template-columns: 2fr 1fr;
+        grid-template-columns: 1fr 1fr;
     }
 }
 
@@ -67,14 +68,20 @@ main {
     display: block;
 }
 
-.stats-container {
+.data-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.stats-container, .pose-container {
     background-color: var(--card-background);
     border-radius: 8px;
     padding: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
-.stats-container h2 {
+.stats-container h2, .pose-container h2 {
     color: var(--primary-color);
     margin-bottom: 20px;
     text-align: center;
@@ -101,6 +108,91 @@ main {
 .stat-value {
     color: var(--secondary-color);
     font-weight: bold;
+}
+
+/* Latest pose stats styling */
+#latest-pose-stats {
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px dashed var(--border-color);
+}
+
+#latest-pose-stats .stat-item {
+    background-color: rgba(74, 134, 232, 0.1);
+    border-left: 3px solid var(--primary-color);
+}
+
+/* Make position values not overflow on small screens */
+#latest-position {
+    word-break: break-word;
+    max-width: 180px;
+    text-align: right;
+}
+
+/* Pose Data Styles */
+#pose-data-container {
+    max-height: 400px;
+    overflow-y: auto;
+    padding-right: 10px;
+}
+
+.no-tags {
+    text-align: center;
+    color: #888;
+    padding: 20px;
+}
+
+.tag-data {
+    margin-bottom: 20px;
+    padding: 15px;
+    border-radius: 8px;
+    background-color: rgba(0, 0, 0, 0.2);
+    border-left: 4px solid var(--tag-highlight);
+}
+
+.tag-data h3 {
+    color: var(--tag-highlight);
+    margin-bottom: 10px;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 5px;
+}
+
+.data-row {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 8px;
+    padding: 5px 0;
+}
+
+@media (min-width: 500px) {
+    .data-row {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+}
+
+.data-label {
+    font-weight: bold;
+    color: #aaa;
+    min-width: 80px;
+}
+
+.data-value {
+    color: var(--text-color);
+}
+
+/* Scrollbar Styling */
+#pose-data-container::-webkit-scrollbar {
+    width: 6px;
+}
+
+#pose-data-container::-webkit-scrollbar-track {
+    background: var(--card-background);
+}
+
+#pose-data-container::-webkit-scrollbar-thumb {
+    background-color: var(--border-color);
+    border-radius: 20px;
 }
 
 /* Footer Styles */

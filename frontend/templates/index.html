@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AprilTag Detection System</title>
+    <title>AprilTag 6DOF Detection System</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
     <div class="container">
         <header>
-            <h1>AprilTag Detection System</h1>
-            <p>Detecting tag36h11 family markers</p>
+            <h1>AprilTag 6DOF Detection System</h1>
+            <p>Detecting tag36h11 family markers with full pose estimation</p>
         </header>
         
         <main>
@@ -18,27 +18,63 @@
                 <img src="{{ url_for('video_feed') }}" alt="Live video feed" id="video-feed">
             </div>
             
-            <div class="stats-container">
-                <h2>Detection Statistics</h2>
-                <div class="stats">
-                    <div class="stat-item">
-                        <span class="stat-label">Tags Detected:</span>
-                        <span class="stat-value" id="tags-count">0</span>
+            <div class="data-container">
+                <div class="stats-container">
+                    <h2>Detection Statistics</h2>
+                    <div class="stats">
+                        <div class="stat-item">
+                            <span class="stat-label">Tags Detected:</span>
+                            <span class="stat-value" id="tags-count">0</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Processing FPS:</span>
+                            <span class="stat-value" id="processing-fps">0</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Last Detection:</span>
+                            <span class="stat-value" id="last-detection">Never</span>
+                        </div>
+                        <!-- Latest pose data for the first detected tag -->
+                        <div id="latest-pose-stats">
+                            <div class="stat-item">
+                                <span class="stat-label">Tag ID:</span>
+                                <span class="stat-value" id="latest-tag-id">-</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-label">Distance:</span>
+                                <span class="stat-value" id="latest-distance">-</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-label">Position:</span>
+                                <span class="stat-value" id="latest-position">-</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-label">Roll:</span>
+                                <span class="stat-value" id="latest-roll">-</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-label">Pitch:</span>
+                                <span class="stat-value" id="latest-pitch">-</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-label">Yaw:</span>
+                                <span class="stat-value" id="latest-yaw">-</span>
+                            </div>
+                        </div>
                     </div>
-                    <div class="stat-item">
-                        <span class="stat-label">Processing FPS:</span>
-                        <span class="stat-value" id="processing-fps">0</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-label">Last Detection:</span>
-                        <span class="stat-value" id="last-detection">Never</span>
+                </div>
+                
+                <div class="pose-container">
+                    <h2>All Tags Pose Information</h2>
+                    <div id="pose-data-container">
+                        <p class="no-tags">No tags detected</p>
                     </div>
                 </div>
             </div>
         </main>
         
         <footer>
-            <p>AprilTag Detection System © 2025</p>
+            <p>AprilTag 6DOF Detection System © 2025</p>
         </footer>
     </div>
     
